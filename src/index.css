@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #030303;
+    color: #F5EFE6;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #030303;
+  }
+
+  button,
+  a,
+  input {
+    outline-offset: 2px;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 2px;
+  }
+}
+
+/* Pure Stark Mario Puzo Godfather Black Canvas */
+.godfather-canvas {
+  background-color: #030303;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(216, 40, 32, 0.08) 0%, rgba(3, 3, 3, 0) 52%);
+}
+
+/* Deep Black Italian Leather Cards with Gold & Crimson Trim */
+.leather-card {
+  background-color: #0B0A0A;
+  background-image:
+    linear-gradient(170deg, rgba(255, 255, 255, 0.025) 0%, rgba(0, 0, 0, 0.45) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23g)' opacity='0.4'/%3E%3C/svg%3E");
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  box-shadow: 0 24px 54px -18px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #F7E5AE 0%, #C9A84C 50%, #9A7524 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.godfather-red-text {
+  color: #DE2C24;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(222, 44, 36, 0.5) 30%, rgba(201, 168, 76, 0.5) 70%, transparent 100%);
+}
+
+.leather-stitch {
+  border: 1px dashed rgba(201, 168, 76, 0.22);
+}
+
+@keyframes smokeDriftA {
+  0% {
+    transform: translate3d(-4%, 6%, 0) scale(1);
+    opacity: 0.14;
+  }
+  50% {
+    transform: translate3d(5%, -5%, 0) scale(1.09);
+    opacity: 0.26;
+  }
+  100% {
+    transform: translate3d(-4%, 6%, 0) scale(1);
+    opacity: 0.14;
+  }
+}
+
+@keyframes smokeDriftB {
+  0% {
+    transform: translate3d(5%, -4%, 0) scale(1.06);
+    opacity: 0.10;
+  }
+  50% {
+    transform: translate3d(-6%, 4%, 0) scale(0.96);
+    opacity: 0.22;
+  }
+  100% {
+    transform: translate3d(5%, -4%, 0) scale(1.06);
+    opacity: 0.10;
+  }
+}
+
+.smoke-wisp-a {
+  animation: smokeDriftA 22s ease-in-out infinite;
+}
+
+.smoke-wisp-b {
+  animation: smokeDriftB 28s ease-in-out infinite;
+}
+
+@keyframes shakeGate {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shakeGate 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smoke-wisp-a,
+  .smoke-wisp-b {
+    animation: none;
+  }
+}
